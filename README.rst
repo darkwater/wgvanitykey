@@ -3,8 +3,8 @@
 wgvanitykey
 ============
 
-A Python script to generate Curve25519 sk/pk keypairs and search for a
-given string in the base64 encoding of the public key
+A Python script to generate Curve25519 sk/pk keypairs and search case-sensitively
+for a given string in the base64 encoding of the public key
 
 .. contents::
 
@@ -19,7 +19,7 @@ To install the package:
 
 .. code:: bash
 
-    pip install -e git+https://github.com/volleybus/wgvanitykey#egg=wgvanitykey
+    pip install -e git+https://github.com/darkwater/wgvanitykey#egg=wgvanitykey
 
 Usage
 =======

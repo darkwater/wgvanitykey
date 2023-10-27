@@ -33,7 +33,7 @@ def keygen():
 def generate_keys(counter, stopafter, matchfunc, outputq=None):
     while counter.value < stopafter:
         private, public = keygen()
-        if matchfunc(public.lower()):
+        if matchfunc(public):
             with counter.get_lock():
                 counter.value += 1
             outputstr = (
@@ -104,8 +104,8 @@ def sanity_check(target):
 
 def wgvanitykey(targetstring, targetcount, matchfunc, workercount=None):
     """search for wireguard private/publickey combinations where
-    ``publickey.lower().startswith(targetstring)``
-    or ``targetstring in publickey.lower()``
+    ``publickey.startswith(targetstring)``
+    or ``targetstring in publickey``
 
     Arguments:
         targetstring (str): ...
@@ -263,7 +263,7 @@ def main(argv=None):
 
     target_string = args[0]
 
-    targetstring = target_string.lower()
+    targetstring = target_string #.lower()
 
     matchdesc, matchfunc = build_matchfunc(opts.matchmethod, targetstring)
     if matchdesc is None:
